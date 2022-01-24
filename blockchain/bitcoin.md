@@ -14,6 +14,19 @@
 * 去中心化
 在2007年，数个分布式的双重支付防范方法被提出，运用于加密货币与其底层的区块链技术。
 
+### 区块链
+
+We define an electronic coin as a chain of digital signatures.Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these on the end of the coin.
+
+![chain](./chain.png)
+
+
+### 工作证明(Proof-Of-Work)
+
+To implement a distributed timestamp server on a peer-to-peer basis,we will need to use a proof-of-work system similar to Adam Back's Hashcash,rather than newspaper or Usenet posts.The proof-of-work involvues scanning for a value that when hashed,such as with SHA-256,the hash begins with a number of zero bits.The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.
+
+
+![Hashcash](./Hashcash.png)
 
 
 
