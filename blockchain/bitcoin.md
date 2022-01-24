@@ -35,3 +35,4 @@ To implement a distributed timestamp server on a peer-to-peer basis,we will need
 
 * > https://github.com/xiaolai/bitcoin-whitepaper-chinese-translation
 * > https://zh.wikipedia.org/wiki/%E9%9B%99%E9%87%8D%E6%94%AF%E4%BB%98
+* > https://github.com/nosequeldeebee/blockchain-tutorial
