@@ -10,6 +10,8 @@
  import './forms/nameForm'
  import './forms/fileInput'
  import './liftingStateUp/calculator'
+ import './context/theme'
+ import './hooks/count'
 
 // ReactDOM.render(
 //   <React.StrictMode>
