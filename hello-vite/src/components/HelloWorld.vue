@@ -32,14 +32,11 @@
 </template>
 
 <script>
-import {MessageBox} from '@raven/cell'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  },
-  mounted(){
-    MessageBox.alert(123)
   }
 }
 </script>
