@@ -1,0 +1,16 @@
+{
+  "name": "traverse-demo",
+  "version": "1.0.0",
+  "description": "babel traverse learn",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"node index.mjs"
+  },
+  "author": "xj",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/parser": "^7.18.0",
+    "@babel/traverse": "^7.18.0"
+  }
+}

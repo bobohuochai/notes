@@ -34,3 +34,19 @@ this is called the prototype chain.
 ## 参考
 
 * > https://mp.weixin.qq.com/s/1UDILezroK5wrcK-Z5bHOg
+
+
+### vite
+
+`es module dev Server + HRM`
+
+```js
+<script type="module"></script>
+```
+
+浏览器模块解析算法只接受相对路径,已'/ ./ ../'开头，然后根据路径下载文件。
+
+* [vite](https://z3rog.tech/blog/2020/simple-vite.html#loadmodulemiddleware) 
+
+* [es module](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
+
