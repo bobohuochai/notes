@@ -1,0 +1,22 @@
+{
+  "name": "decorator-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "decorator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel  src/**/*.js -d dist",
+    "start":"node dist/decorator.js"
+  },
+  "keywords": [
+    "decorator"
+  ],
+  "author": "xj",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/plugin-proposal-decorators": "^7.18.10",
+    "@babel/preset-env": "^7.18.10"
+  }
+}
