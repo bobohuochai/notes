@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div id="test"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div> 
+    <div></div>
+    <ul id="myList">
+        <li ><a href="http://phpied.com">Stoyan</a></li>
+        <li ><a href="http://julienlecomte.com">Julien</a></li>
+    </ul>
+</body>
+<script>
+function innerHTMLLoop1(){
+    for(var count =0 ;count<15000;count++){
+        document.getElementById('test').innerHTML += 'a'
+    }
+}
+function innerHTMLLoop2(){
+    let text = ''
+    for(var count =0 ;count<15000;count++){
+        text += 'a'
+    }
+    document.getElementById('test').innerHTML = text
+}
+console.time('testLoop1');
+innerHTMLLoop1()
+console.timeEnd('testLoop1');
+
+console.time('testLoop2')
+innerHTMLLoop2()
+console.timeEnd('testLoop2')
+
+// live html collections
+function liveHtmlCollections(){
+    const allDivs = document.getElementsByTagName('div')
+    for(let i=0;i<allDivs.length;i++){
+        document.body.appendChild(document.createElement('div'))
+    }
+}
+
+function toArray(coll) {
+    return Array.from(coll)
+}
+const coll = document.getElementsByTagName('div')
+const array = toArray(coll)
+
+function loopCollection(){
+    for(let i =0 ;i<coll.length;i++){
+
+    }
+}
+
+function loopArray(){
+    for(let i =0 ;i<array.length;i++){
+
+    }
+}
+
+function loopCacheLengthCollection(){
+    const len= coll.length
+    for(let i=0;i<len;i++){
+
+    }
+}
+
+console.time('collLength')
+loopCollection();
+console.timeEnd('collLength')
+
+console.time('arrayLength')
+loopArray();
+console.timeEnd('arrayLength')
+
+console.time('collCacheLength')
+loopCacheLengthCollection();
+console.timeEnd('collCacheLength')
+
+
+function batchNodes() {
+    const data = [
+        {name:'Nicholas',url:'http://nczonline.net'},
+        {name:'Ross',url:'http://techfoolery.com'}
+    ]
+    function appendDataToElement(appendToElement,data){
+        let a,li;
+        for(let i=0,max=data.length;i<max;i++){
+            a = document.createElement('a');
+            a.href = data[i].url;
+            a.appendChild(document.createTextNode(data[i].name))
+            li = document.createElement('li')
+            li.appendChild(a);
+            appendToElement.appendChild(li)
+        }
+    }
+    // bad practice
+    // var ul = document.getElementById('myList');
+    // appendDataToElement(ul,data)
+
+    // batch dom change
+    const ul = document.getElementById('myList');
+    ul.style.display='none';
+    appendDataToElement(ul,data)
+    ul.style.display="block";
+
+}
+
+batchNodes()
+
+</script>
+
+</html>
