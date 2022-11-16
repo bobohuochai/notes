@@ -81,3 +81,8 @@ appendDataToElement(clone,data)
 old.parentNode.replaceChild(clone,old)
 
 ```
+
+
+### Position absolutly during animations,and use drag and drop proxies.
+
+### Use event delegation to minimize the number of event handlers.
