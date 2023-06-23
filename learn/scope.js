@@ -13,6 +13,13 @@ function foo(a) {
   }
 }
 
+var execFn = (function(){
+    var gtokey=11
+})()
+
+
+console.log(111111,gtokey)
+
 foo(1);
 result[0]();
 result[1]();

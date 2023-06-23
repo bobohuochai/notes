@@ -20,6 +20,27 @@ this is called the prototype chain.
 也就是说，prototype 对象也有自己的隐式引用，有自己的 prototype 对象。
 如此，构成了对象的原型的原型的原型的链条，直到某个对象的隐式引用为 null，整个链条终止。
 
+### obj.name 和 obj[name]
+
+``` javascript 
+
+const lookupProperty = (obj,propertyName) => {
+    let current = obj
+    if(current == null) {
+        throw new Error(`Cannot read property ${propertyName} of ${obj}`)
+    }
+    while(current) {
+        if(current.hasOwnProperty(propertyName) {
+            return current[propertyName]
+        }
+        else {
+            current = Object.getPrototypeOf(current)
+        }
+    }
+    return undefined
+}
+
+```
 ## 原型继承方式
 
 ### 显示原型继承
@@ -29,7 +50,23 @@ this is called the prototype chain.
 
 ### 隐式原型继承
 
+1. 创建空对象
+2. 设置空对象的原型为另一个对象或null
+3. 填充该对象，增加属性和方法
+
+
 * new 操作符
+
+``` javascript
+
+const createInstance = (Constructor,args)=>{
+    const instance = Object.create(Constructor.prototype)
+    Constructor.call(instance,...args)
+    return instance
+}
+
+```
+  
 
 ## 参考
 

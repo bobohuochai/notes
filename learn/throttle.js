@@ -44,12 +44,11 @@ var main = () => {
 
   var debouncelog = debounce(log, 20);
 
-  for (var i = 0; i < 1000; i++) {
-    let time = i;
+  for (let i = 0; i < 1000; i++) {
     setTimeout(() => {
-      //thlog(time);
-     debouncelog(time);
-    }, time);
+      thlog(i);
+     //debouncelog(time);
+    }, i);
   }
 };
 

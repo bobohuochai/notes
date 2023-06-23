@@ -19,6 +19,14 @@
         <li ><a href="http://phpied.com">Stoyan</a></li>
         <li ><a href="http://julienlecomte.com">Julien</a></li>
     </ul>
+    <ul class="mainapp-sidemenu">
+        <li onclick="push('/react16')">React16</li>
+        <li onclick="push('/react15')">React15</li>
+        <li onclick="push('/vue')">Vue</li>
+        <li onclick="push('/vue3')">Vue3</li>
+        <li onclick="push('/angular9')">Angular9</li>
+        <li onclick="push('/purehtml')">Purehtml</li>
+    </ul>
 </body>
 <script>
 function innerHTMLLoop1(){
@@ -116,6 +124,24 @@ function batchNodes() {
 }
 
 batchNodes()
+
+
+function stringConcatenation(){
+    const str = 'isdfdsdfsdfdfdfdfdfdfdff'
+    let newString = ''
+    let appendCount =5000
+    while(appendCount--){
+        newString += str
+    }
+}
+
+console.time('string')
+stringConcatenation()
+console.timeEnd('string')
+
+function push(path){
+    history.pushState(null,path,path)
+}
 
 </script>
 

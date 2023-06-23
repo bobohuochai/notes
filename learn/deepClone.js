@@ -4,28 +4,28 @@ const obj = {
     return "x";
   },
   val: 3,
-  z: { c: 5 }
+  z: { c: 5 },
 };
+obj.circle = obj.z
 
 const isObject = o => {
-  if (Object.prototype.toString.call(o) === "[object Object]") {
-    return {};
-  }
-  if (Object.prototype.toString.call(o) === "[object Array]") {
-    return [];
-  }
-  return o;
+   return typeof o === 'object' && o !== null
 };
 
-const dfsDeepClone = originObj => {
-  let result = isObject(originObj);
+const dfsDeepClone = (originObj,hash = new Map()) => {
+  if(!isObject(originObj)) return originObj
+  if (hash.has(originObj)) return hash.get(originObj); // 新增代码，查哈希表
+  let result = Array.isArray(originObj) ? []:{}
+  hash.set(originObj,result)
   for (let key in originObj) {
-    if (typeof originObj[key] === "object") {
-      console.log(key);
-      result[key] = dfsDeepClone(originObj[key]);
-    } else {
-      console.log(key);
-      result[key] = originObj[key];
+    if(Object.prototype.hasOwnProperty.call(originObj,key)){
+        if (typeof originObj[key] === "object") {
+            console.log(key);
+            result[key] = dfsDeepClone(originObj[key],hash);
+          } else {
+            console.log(key);
+            result[key] = originObj[key];
+          }
     }
   }
   return result;
@@ -54,7 +54,7 @@ const dfsDeepCloneStack = ori => {
   return target;
 };
 
-console.log(dfsDeepCloneStack(obj));
+//console.log(dfsDeepCloneStack(obj));
 
 const bfsDeepClone = o => {
   const queue = [];
@@ -75,7 +75,7 @@ const bfsDeepClone = o => {
   return target;
 };
 
-console.log(bfsDeepClone(obj));
+//console.log(bfsDeepClone(obj));
 
 // const bfsDeepCloneByRe = obj => {
 //   let target = isObject(obj);
