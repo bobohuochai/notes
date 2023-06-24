@@ -35,6 +35,21 @@ const debounce = (fn, time) => {
   };
 };
 
+const debounce2 = function(fn,time,immediate) {
+    let timer
+    return function(...args) {
+        if(immediate && !timer) {
+            fn.apply(this,args)
+        }
+        if(timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(()=>{
+         fn.apply(this,args)
+        },time)
+    }
+}
+
 var main = () => {
   const log = i => {
     console.log(i);
@@ -43,11 +58,13 @@ var main = () => {
   var thlog = throttle(log, 20);
 
   var debouncelog = debounce(log, 20);
+  
+  const debounce2log = debounce2(log,20,true)
 
   for (let i = 0; i < 1000; i++) {
     setTimeout(() => {
-      thlog(i);
-     //debouncelog(time);
+     // thlog(i);
+     debounce2log(i);
     }, i);
   }
 };
