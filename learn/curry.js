@@ -32,11 +32,33 @@ console.log(sum(10,2,3)(4, 5, 6)());
 console.log(sum(1,2,3)(4)(5).run());
 
 
-function add(a,b,c) {
-    return a+b+c
-}
 
 function currying(fn,length) {
-    
+    const restLength = length || fn.length
+    return function(...args){
+        return args.length >= restLength ?
+        fn.apply(this,args) : currying(fn.bind(this,...args),length-args.length)
+    }
 }
+
+function currying2(fn) {
+    return function judge(...args) {
+        return args.length>=fn.length ?
+        fn(...args):(...arg)=>judge(...args,...arg)
+    }
+}
+
+const curryAdd = currying(function(a,b,c) {
+    return a+b+c
+})
+
+const curry2Add = currying2(function(a,b,c,d){
+    return a+b+c+d
+})
+
+console.log(curryAdd(1)(2)(3))
+console.log(curryAdd(1,2)(3))
+console.log(curryAdd(1,2,3))
+console.log(curry2Add(1,2)(3,4))
+console.log(curry2Add(1,2,3))
 
