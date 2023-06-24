@@ -31,3 +31,12 @@ const sum = curry(_add);
 console.log(sum(10,2,3)(4, 5, 6)());
 console.log(sum(1,2,3)(4)(5).run());
 
+
+function add(a,b,c) {
+    return a+b+c
+}
+
+function currying(fn,length) {
+    
+}
+
